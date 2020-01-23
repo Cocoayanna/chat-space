@@ -23,13 +23,24 @@ Things you may want to cover:
 
 * ...
 
+## userテーブル
+
+|Column|type|options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+
+## Association
+- has_many : messages
+- has_many :groups, through: groups_users
+
 ## groupテーブル
 
 |Column|type|options|
 |------|----|-------|
 |group_id|integer|null: false|
 |group_name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
 
 ## Association
 - has_many :messages
