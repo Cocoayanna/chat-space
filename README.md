@@ -33,11 +33,11 @@ Things you may want to cover:
 
 ## Association
 - has_many :messages
-- has_many :users, through: groups_users##
+- has_many :users, through: groups_users
 
 ## messageテーブル 
 
-||Column|type|options|
+|Column|type|options|
 |------|----|-------|
 |body|text|null: false|
 |image|string|null: false|
