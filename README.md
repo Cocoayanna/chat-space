@@ -27,32 +27,32 @@ Things you may want to cover:
 
 |Column|type|options|
 |------|----|-------|
-|user_id|integer|null: false|
 |name|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
 
 ## Association
 - has_many : messages
-- has_many :groups, through: groups_users
+- has_many :groups, through: :groups_users
+- has_many :groups_users
 
 ## groupテーブル
 
 |Column|type|options|
 |------|----|-------|
-|group_id|integer|null: false|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ## Association
 - has_many :messages
-- has_many :users, through: groups_users
+- has_many :users, through: :groups_users
+- has_many :groups_users
 
 ## messageテーブル 
 
 |Column|type|options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
+|body|text||
+|image|string||
 |user_id |integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
