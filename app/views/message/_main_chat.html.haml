@@ -1,0 +1,38 @@
+.main-chat
+  .main-chat__top
+    .main-chat__top__group
+      .main-chat__top__group__right
+        .main-chat__top__group__right__name
+          %p text
+        .main-chat__top__group__right__member
+          %p member: masa
+      .main-chat__top__group__left
+        =link_to "#", class: "edit" do
+          %p.main-chat__top__group__left__edit
+            Edit
+  .main-chat__message
+    .main-chat__message__info
+      .main-chat__massages__info__user-name
+        = @user.name
+        .main-chat__message__info__user__name
+        .main-chat__message__info__data 
+        .main-chat__message__text
+  .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+
+  .messages
+    = render @messages
+  -# .form
+  -#   %form.main-chat__bottom
+  -#     .input-box
+  -#       %input{text: "text", class: "input-box__text", placeholder: "type a message"}
+  -#       %label{class:"input-box__image"}
+  -#         = icon('fas', 'image')
+  -#         %input{type: "file", class: "input-box__image__file"}
+  -#     %input{type: "submit", class: "submit-btn"}
